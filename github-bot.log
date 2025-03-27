@@ -1,0 +1,40 @@
+2025-03-27T17:32:06.591+05:30  INFO 52749 --- [main] c.e.githubbot.GithubBotApplication       : Starting GithubBotApplication using Java 21.0.6 with PID 52749 (/home/bhaskar/IdeaProjects/Github_Bot/target/classes started by bhaskar in /home/bhaskar/IdeaProjects/Github_Bot)
+2025-03-27T17:32:06.592+05:30 DEBUG 52749 --- [main] c.e.githubbot.GithubBotApplication       : Running with Spring Boot v3.2.0, Spring v6.1.1
+2025-03-27T17:32:06.592+05:30  INFO 52749 --- [main] c.e.githubbot.GithubBotApplication       : No active profile set, falling back to 1 default profile: "default"
+2025-03-27T17:32:07.054+05:30  INFO 52749 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2025-03-27T17:32:07.060+05:30  INFO 52749 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2025-03-27T17:32:07.060+05:30  INFO 52749 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.16]
+2025-03-27T17:32:07.089+05:30  INFO 52749 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2025-03-27T17:32:07.090+05:30  INFO 52749 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 471 ms
+2025-03-27T17:32:08.039+05:30  INFO 52749 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2025-03-27T17:32:08.044+05:30  INFO 52749 --- [main] c.e.githubbot.GithubBotApplication       : Started GithubBotApplication in 1.709 seconds (process running for 1.882)
+2025-03-27T17:32:08.047+05:30  INFO 52749 --- [scheduling-1] c.e.githubbot.service.GithubBotService   : Fetching open PRs for repository: your-org/your-repo
+2025-03-27T17:32:09.327+05:30  INFO 52749 --- [scheduling-1] c.e.githubbot.service.GithubBotService   : Fetching open PRs for repository: your-org/your-repo
+2025-03-27T17:32:11.608+05:30  INFO 52749 --- [scheduling-1] c.e.githubbot.service.GithubBotService   : Fetching open PRs for repository: your-org/your-repo
+2025-03-27T17:32:15.898+05:30  INFO 52749 --- [scheduling-1] c.e.githubbot.service.GithubBotService   : Fetching open PRs for repository: your-org/your-repo
+2025-03-27T17:32:16.174+05:30 ERROR 52749 --- [scheduling-1] c.e.githubbot.service.SchedulerService   : Failed to check PRs after 3 attempts
+
+org.kohsuke.github.HttpException: {"message":"Bad credentials","documentation_url":"https://docs.github.com/rest","status":"401"}
+	at org.kohsuke.github.GitHubConnectorResponseErrorHandler$1.onError(GitHubConnectorResponseErrorHandler.java:62) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.GitHubClient.detectKnownErrors(GitHubClient.java:473) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.GitHubClient.sendRequest(GitHubClient.java:434) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.GitHubClient.sendRequest(GitHubClient.java:403) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.Requester.fetch(Requester.java:85) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.GHRepository.read(GHRepository.java:145) ~[github-api-1.316.jar:na]
+	at org.kohsuke.github.GitHub.getRepository(GitHub.java:684) ~[github-api-1.316.jar:na]
+	at com.example.githubbot.service.GithubBotService.fetchNewPRs(GithubBotService.java:30) ~[classes/:na]
+	at com.example.githubbot.service.SchedulerService.checkOpenPRs(SchedulerService.java:30) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:103) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:580) ~[na:na]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.runInternal(ScheduledMethodRunnable.java:130) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.lambda$run$2(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at io.micrometer.observation.Observation.observe(Observation.java:499) ~[micrometer-observation-1.12.0.jar:1.12.0]
+	at org.springframework.scheduling.support.ScheduledMethodRunnable.run(ScheduledMethodRunnable.java:124) ~[spring-context-6.1.1.jar:6.1.1]
+	at org.springframework.scheduling.support.DelegatingErrorHandlingRunnable.run(DelegatingErrorHandlingRunnable.java:54) ~[spring-context-6.1.1.jar:6.1.1]
+	at java.base/java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:572) ~[na:na]
+	at java.base/java.util.concurrent.FutureTask.runAndReset(FutureTask.java:358) ~[na:na]
+	at java.base/java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:305) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:1583) ~[na:na]
+
