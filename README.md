@@ -1,5 +1,8 @@
 # GitHub Bot - Automated Code Review Assistant
 
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![Spring](https://img.shields.io/badge/spring-%236DB33F.svg?style=for-the-badge&logo=spring&logoColor=white)
+
 ## Overview
 This is a Spring Boot application that automates code review processes on GitHub repositories. It provides automated code analysis, review comments, and reviewer assignment based on code changes.
 
